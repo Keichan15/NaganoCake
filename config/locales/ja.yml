@@ -1,0 +1,20 @@
+ja: #　日本語の設定
+  enums: # enumの設定
+    order: #モデル名
+      payment_method: #カラム名
+         credit_card: "クレジットカード"
+         transfer: "銀行振込"
+
+      status:
+        awaiting_payment: "入金待ち"
+        payment_confirmation: "入金確認"
+        under_manufacture: "製作中"
+        preparing_to_ship: "発送準備中"
+        already_shipped: "発送済み"
+
+    order_detail:
+      making_status:
+        cannot_be_started: "着手不可"
+        awaiting_manufacture: "製作待ち"
+        under_manufacture: "製作中"
+        completed_production: "製作完了"

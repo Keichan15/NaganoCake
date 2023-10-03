@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <table>
+        <thead>
+          <tr>
+            <th>
+              ジャンル検索
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <td>
+              <%= link_to genre.name, items_path(genre_id: genre.id), class: "text-dark" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-8">
+      <% if params[:genre_id] %>
+        <h2>
+          <%= @genre.name %>一覧 (全 <%= @all_items_count %>件)
+        </h2>
+      <% else %>
+        <h2>
+          商品一覧 (全 <%= @all_items_count %>件)
+        </h2>
+      <% end %>
+
+      <div class="d-flex align-items-center flex-wrap">
+        <div>
+          <% @items.each do |item| %>
+              <%= link_to item_path(item) do %>
+                <%= image_tag item.get_image(100, 100) %>
+              <% end %>
+              <%= item.name %>
+              ￥<%= item.with_tax_price.to_s(:delimited) %>
+          <% end %>
+        </div>
+      </div>
+      <%= paginate @items %>
+    </div>
+  </div>
+</div>

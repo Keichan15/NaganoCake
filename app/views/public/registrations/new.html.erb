@@ -1,0 +1,111 @@
+<h2>新規会員登録</h2>
+
+<%= form_with model: @customer, url: customer_registration_path do |f| %>
+  <%= render "public/shared/error_messages", resource: resource %>
+  <table class="table">
+    <tbody>
+      <tr class="name">
+        <td>
+          名前
+        </td>
+        <td>
+          (姓)
+        </td>
+        <td>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+        </td>
+        <td>
+          (名) 
+       </td>
+        <td>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+        </td>
+      </tr>
+      <tr class="name_kana">
+        <td>
+          フリガナ
+        </td>
+        <td>
+          (セイ)
+        </td>
+        <td>
+          <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+        </td>
+        <td>
+          (メイ)
+        </td>
+        <td>
+          <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+        </td>
+      </tr>
+      <tr class="email">
+        <td>
+          メールアドレス
+        </td>
+        <td></td>
+        <td>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </td>
+      </tr>
+      <tr class="postal_code">
+        <td>
+          郵便番号(ハイフンなし)
+        </td>
+        <td></td>
+        <td>
+          <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+        </td>
+      </tr>
+      <tr class="address">
+        <td>
+          住所
+        </td>
+        <td></td>
+        <td>
+          <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+        </td>
+      </tr>
+      <tr class="telephone_number">
+        <td>
+          電話番号(ハイフンなし)
+        </td>
+        <td></td>
+        <td>
+          <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
+        </td>
+      </tr>
+      <tr class="password">
+        <td>
+          <% if @minimum_password_length %>
+            <em>パスワード(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %><br />
+        </td>
+        <td></td>
+        <td>
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </td>
+      </tr>
+      <tr class="password_confirmation">
+        <td>
+          パスワード(確認用)
+        </td>
+        <td></td>
+        <td>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </td>
+      </tr>
+      <tr class="actions">
+        <td></td>
+        <td></td>
+        <td>
+          <%= f.submit "新規登録", class: "btn btn-success" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<p>既に登録済みの方</p>
+<p>
+  <%= render "public/shared/links" %> からログインしてください。
+</p>

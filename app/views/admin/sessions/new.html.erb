@@ -1,0 +1,32 @@
+<h2>管理者ログイン</h2>
+
+<%= form_with model: @admin, url: admin_session_path do |f| %>
+  <table>
+    <tbody>
+      <tr class="email">
+        <td>
+          メールアドレス
+        </td>
+        <td>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </td>
+      </tr>
+      <tr class="password">
+        <td>
+          パスワード
+        </td>
+        <td>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </td>
+      </tr>
+      <tr class="submit">
+        <td></td>
+        <td>
+          <%= f.submit "Log in" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<%= render "admin/shared/links" %>
