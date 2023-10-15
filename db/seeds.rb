@@ -30,6 +30,7 @@ Genre.create!(
 
 20.times do |n|
   item = Item.create(genre_id: 1, name: "ケーキ{n}", introduction: "甘くて美味しいケーキ{n}", price: n * 500, is_active: 'true'),
+  # ActiveStorage用画像
   item.image.attach(io: File.open(Rails.root.join('app/assets/images/no_image.jpg')),filename: 'no_image.jpg')
 end
 
