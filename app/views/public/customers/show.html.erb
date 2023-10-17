@@ -3,7 +3,8 @@
 <div class="container">
   <p>
     <strong>登録情報</strong>
-    <%= link_to "編集する", edit_customers_path, class: "btn btn-success" %>
+    <!-- turbolinksを無効化する際は{"turbolinks"=>false}オプションを設定する-->
+    <%= link_to "編集する", edit_customers_path, data: {"turbolinks"=>false}, class: "btn btn-success" %>
   </p>
 
   <table class="table table-bordered">
